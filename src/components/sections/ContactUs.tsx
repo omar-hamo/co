@@ -13,13 +13,13 @@ import Amsterdam from "../../assets/Amsterdam-location.webp";
 import programmer from "../../assets/programmer.jpg";
 
 import { FaRocket, FaCode, FaChartLine } from "react-icons/fa";
-import {
-  FaCogs,
-  FaMobileAlt,
-  FaSyncAlt,
-  FaLifeRing,
-  FaPalette,
-} from "react-icons/fa";
+// import {
+//   FaCogs,
+//   FaMobileAlt,
+//   FaSyncAlt,
+//   FaLifeRing,
+//   FaPalette,
+// } from "react-icons/fa";
 
 // بيانات المؤسسين
 const owners = [

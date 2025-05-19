@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import solo from "../assets/solo.webp";
+// import { useState } from "react";
+// import Image from "next/image";
+// import solo from "../assets/solo.webp";
 
 import Link from "next/link";
 
