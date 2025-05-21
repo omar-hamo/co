@@ -1,15 +1,17 @@
+// app/layout.tsx  (أو الملفات المكافئة في مشروعك)
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Image from "next/image";
+import whatsappIcon from "../assets/WhatsApp.svg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
@@ -32,6 +34,32 @@ export default function RootLayout({
       >
         <Header />
         {children}
+
+        {/* WhatsApp Floating Button */}
+        <a
+          href="https://wa.me/963981705334"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            fixed bottom-4 right-4 z-50
+            flex items-center space-x-3
+            bg-white bg-opacity-90 backdrop-blur-md
+            px-4 py-2 rounded-full shadow-lg
+            hover:shadow-xl transition-shadow
+          "
+        >
+          <Image
+            src={whatsappIcon}
+            alt="WhatsApp"
+            width={40}
+            height={40}
+            className="!bg-transparent"
+          />
+          <span className="text-sm font-medium text-gray-800 whitespace-nowrap">
+            Need a website?<div>We're here to help!</div>
+          </span>
+        </a>
+
         <Footer />
       </body>
     </html>

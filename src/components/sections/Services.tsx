@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Banner from "../Banner";
-import programmer from "../../assets/programmer.jpg";
+import major from "../../assets/major.png";
 import {
   Server,
   Search,
@@ -47,10 +47,10 @@ export default function Services() {
       {/* Hero with diagonal SVG overlay */}
       <div className="relative">
         <Banner
-          title="Our Services"
-          highlightedWord=""
+          title="Our "
+          highlightedWord="Services"
           description="We deliver comprehensive web solutions tailored to your business goals."
-          backgroundImage={programmer}
+          backgroundImage={major}
           bottomTitle="How to Get Started"
           bottomText="Reach us through social media or our website!"
         />

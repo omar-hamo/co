@@ -16,6 +16,7 @@ const Header: React.FC = () => {
     { href: "/services", label: "Services" },
     { href: "/technologies", label: "Technologies" },
     { href: "/careers", label: "Careers" },
+    { href: "/pricing", label: "Pricing" },
     { href: "/contact", label: "Contact Us" },
   ];
 
@@ -25,11 +26,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="Company Logo" width={60} height={60} />
-          <div className="text-orange-600 font-bold leading-5">
-            COURTNEY
-            <br />
-            LANKA
-          </div>
+          <div className="text-orange-600 font-bold leading-5">RO-TECH</div>
         </Link>
 
         {/* زر الهامبرغر للموبايل */}

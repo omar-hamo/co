@@ -17,7 +17,7 @@ import {
   FaPalette,
 } from "react-icons/fa";
 
-import programmer from "../assets/programmer.jpg";
+import major from "../assets/major.png";
 import Banner from "@/components/Banner";
 
 // Variants مشترك للكروت
@@ -84,7 +84,7 @@ const HowToStart: React.FC = () => {
         title="Start Your Journey with Us"
         highlightedWord="Today!"
         description="Kickstart your digital project with our expert team through a simple and clear process."
-        backgroundImage={programmer}
+        backgroundImage={major}
         bottomTitle="How to Get Started"
         bottomText="Reach us through social media or our website!"
       />

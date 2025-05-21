@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Banner from "../Banner";
-import programmer from "../../assets/programmer.jpg";
+import major from "../../assets/major.png";
 
 const positions = [
   {
@@ -38,10 +38,10 @@ export default function Careers() {
     <section className="bg-gray-50">
       {/* Hero Banner */}
       <Banner
-        title="Careers at Formanji"
-        highlightedWord=""
+        title="Careers at "
+        highlightedWord="Formanji"
         description="Join a team that builds high-performance, modern web applications using the latest technologies like Next.js, Django, React, and more. We’re passionate about clean code, great design, and solving real business problems with smart software solutions."
-        backgroundImage={programmer}
+        backgroundImage={major}
         bottomTitle="Ready to take the next step?"
         bottomText="Discover your future with us."
       />

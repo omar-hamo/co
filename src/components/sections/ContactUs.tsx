@@ -7,37 +7,29 @@ import { motion, Variants } from "framer-motion";
 import Banner from "../Banner";
 import Consultation from "../Consultation";
 
-import founder1 from "../../assets/logo.jpg";
-import founder2 from "../../assets/logo.jpg";
+import roony from "../../assets/roony.png";
+import omar from "../../assets/omar.jpg";
 import Amsterdam from "../../assets/Amsterdam-location.webp";
-import programmer from "../../assets/programmer.jpg";
+import major from "../../assets/major.png";
 
 import { FaRocket, FaCode, FaChartLine } from "react-icons/fa";
-// import {
-//   FaCogs,
-//   FaMobileAlt,
-//   FaSyncAlt,
-//   FaLifeRing,
-//   FaPalette,
-// } from "react-icons/fa";
 
-// بيانات المؤسسين
 const owners = [
   {
-    name: "Ahmad Al-Zahiri",
-    role: "Co-Founder & CTO",
-    bio: "20+ years in web development, passionate about crafting scalable architectures.",
-    email: "ahmad@formanji.com",
-    phone: "+44 7328 112 884",
-    photo: founder1,
+    name: "Roony Zen Alden",
+    role: "Co-Founder & CEO",
+    bio: "With over 4 years of hands-on experience in mobile application development and backend engineering, I specialize in crafting scalable, high-performance systems that drive visibility and engagement.",
+    email: "ronizenalden@gmail.com",
+    phone: "+963 981 705 334",
+    photo: roony,
   },
   {
-    name: "Laila Hassan",
-    role: "Co-Founder & CEO",
-    bio: "Driven by innovation, leading our team to deliver top-notch digital experiences.",
-    email: "laila@formanji.com",
-    phone: "+44 7856 229 556",
-    photo: founder2,
+    name: "Omar Hamo",
+    role: "Co-Founder & CTO",
+    bio: "A seasoned full-stack developer with 3+ years of experience designing responsive frontends and building robust backend services, I blend technical precision with strategic insight to optimize user journeys.",
+    email: "omar.hamo04942@gmail.com",
+    phone: "+963 944 974 828",
+    photo: omar,
   },
 ];
 
@@ -98,10 +90,10 @@ const ContactUs: React.FC = () => {
     <main>
       {/* Banner */}
       <Banner
-        title="Contact Us"
-        highlightedWord=""
+        title="Contact "
+        highlightedWord="Us"
         description="At Formanji, we transform ideas into digital realities. Our expert team combines innovation, design, and technology to deliver exceptional web applications."
-        backgroundImage={programmer}
+        backgroundImage={major}
         bottomTitle="Join Our Story"
         bottomText="Learn more about our journey and values."
       />
@@ -152,7 +144,58 @@ const ContactUs: React.FC = () => {
           ))}
         </div>
       </section>
+      <section className="bg-gray-50 py-16 px-4">
+        <motion.div
+          className="max-w-4xl mx-auto text-center mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-extrabold text-gray-800"
+          >
+            What We Offer
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mt-4 text-gray-600"
+          >
+            Our services are tailored to help your brand grow and succeed
+            online.
+          </motion.p>
+        </motion.div>
 
+        <div className="max-w-3xl mx-auto space-y-4 text-left">
+          {[
+            "✅ Social media account management",
+            "✅ Short & promotional video design and editing",
+            "✅ Website and e-commerce store design",
+            "✅ SEO-friendly article writing",
+            "✅ High-quality backlink building",
+            "✅ Complete and professional marketing strategy",
+            "✓ Trusted by over 9,000 clients",
+            "✓ Cancel anytime — no commitment!",
+          ].map((service, idx) => (
+            <motion.p
+              key={idx}
+              custom={idx}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-gray-700 text-lg font-medium"
+            >
+              {service}
+            </motion.p>
+          ))}
+        </div>
+      </section>
       {/* Our Leadership */}
       <section className="bg-gray-50 py-16 px-4">
         <motion.div
