@@ -246,7 +246,7 @@ const ContactUs: React.FC = () => {
               <h3 className="text-xl font-semibold text-gray-800">
                 {owner.name}
               </h3>
-              <p className="text-indigo-600 font-medium mt-1">{owner.role}</p>
+              {/* <p className="text-indigo-600 font-medium mt-1">{owner.role}</p> */}
               <p className="text-gray-600 mt-4 text-center">{owner.bio}</p>
               <div className="mt-4 text-center space-y-1">
                 <p className="text-sm text-gray-600">
