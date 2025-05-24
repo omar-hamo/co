@@ -138,7 +138,7 @@ export default function Footer() {
                 href="tel:+15551234567"
                 className="hover:text-blue-600 transition-colors duration-300"
               >
-                +1 (555) 123-4567
+                +31 6 31104755
               </a>
             </li>
             <li>Netherlands, Amsterdam</li>

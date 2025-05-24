@@ -9,6 +9,7 @@ import Consultation from "../Consultation";
 
 import roony from "../../assets/roony.png";
 import omar from "../../assets/omar.jpg";
+import ayman from "../../assets/ayman.jpg";
 import Amsterdam from "../../assets/Amsterdam-location.webp";
 import major from "../../assets/major.png";
 
@@ -16,8 +17,16 @@ import { FaRocket, FaCode, FaChartLine } from "react-icons/fa";
 
 const owners = [
   {
+    name: "Ayman Almousa",
+    // role: "Co-Founder & CEO",
+    bio: "Senior data analyst and data scientist with 5+ years of hands-on work in ETL pipelines, interactive dashboards, and machine learning applications. I leverage AI and statistical methods to transform raw data into actionable insights.",
+    email: "aymanalmousa@gmail.com",
+    phone: "+31 631 104 755",
+    photo: ayman,
+  },
+  {
     name: "Roony Zen Alden",
-    role: "Co-Founder & CEO",
+    // role: "Co-Founder & CEO",
     bio: "With over 4 years of hands-on experience in mobile application development and backend engineering, I specialize in crafting scalable, high-performance systems that drive visibility and engagement.",
     email: "ronizenalden@gmail.com",
     phone: "+963 981 705 334",
@@ -25,7 +34,7 @@ const owners = [
   },
   {
     name: "Omar Hamo",
-    role: "Co-Founder & CTO",
+    // role: "Co-Founder & CTO",
     bio: "A seasoned full-stack developer with 3+ years of experience designing responsive frontends and building robust backend services, I blend technical precision with strategic insight to optimize user journeys.",
     email: "omar.hamo04942@gmail.com",
     phone: "+963 944 974 828",
@@ -214,7 +223,7 @@ const ContactUs: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {owners.map((owner, idx) => (
             <motion.div
               key={idx}

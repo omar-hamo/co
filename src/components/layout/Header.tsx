@@ -22,11 +22,11 @@ const Header: React.FC = () => {
 
   return (
     <header className="w-full px-6 py-4 bg-white shadow-sm relative z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="mx-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="Company Logo" width={60} height={60} />
-          <div className="text-orange-600 font-bold leading-5">RO-TECH</div>
+          <div className="text-orange-600 font-bold leading-5">ARO-TECH</div>
         </Link>
 
         {/* زر الهامبرغر للموبايل */}

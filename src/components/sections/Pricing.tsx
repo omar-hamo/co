@@ -1,4 +1,3 @@
-// app/pricing/page.tsx
 "use client";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
@@ -26,42 +25,194 @@ const buttonVariants: Variants = {
   },
 };
 
-const plans = [
+const allPlans = [
   {
-    name: "Basic",
-    price: "$99/mo",
-    features: [
-      "5 social media posts/month",
-      "1 short promotional video",
-      "Basic website template",
-      "SEO-friendly blog setup",
+    section: "Web Site Plans",
+    plans: [
+      {
+        name: "Basic",
+        price: "$99/mo",
+        features: [
+          "5 social media posts/month",
+          "1 short promotional video",
+          "Basic website template",
+          "SEO-friendly blog setup",
+        ],
+      },
+      {
+        name: "Standard",
+        price: "$249/mo",
+        features: [
+          "15 social media posts/month",
+          "3 promotional videos",
+          "Custom website & e-commerce store",
+          "4 SEO-optimized articles",
+          "Monthly backlink report",
+        ],
+        featured: true,
+      },
+      {
+        name: "Premium",
+        price: "$499/mo",
+        features: [
+          "Unlimited social media posts",
+          "Weekly video production",
+          "Advanced e-commerce platform",
+          "Weekly SEO articles",
+          "Dedicated account manager",
+          "Full marketing strategy",
+        ],
+      },
     ],
-    featured: false,
   },
   {
-    name: "Standard",
-    price: "$249/mo",
-    features: [
-      "15 social media posts/month",
-      "3 promotional videos",
-      "Custom website & e-commerce store",
-      "4 SEO-optimized articles",
-      "Monthly backlink report",
+    section: "Marketing Plans",
+    plans: [
+      {
+        name: "Basic",
+        price: "$99/mo",
+        features: [
+          "5 social media posts/month",
+          "1 short promotional video",
+          "Basic website template",
+          "SEO-friendly blog setup",
+        ],
+      },
+      {
+        name: "Standard",
+        price: "$249/mo",
+        features: [
+          "15 social media posts/month",
+          "3 promotional videos",
+          "Custom website & e-commerce store",
+          "4 SEO-optimized articles",
+          "Monthly backlink report",
+        ],
+        featured: true,
+      },
     ],
-    featured: true,
   },
   {
-    name: "Premium",
-    price: "$499/mo",
-    features: [
-      "Unlimited social media posts",
-      "Weekly video production",
-      "Advanced e-commerce platform",
-      "Weekly SEO articles",
-      "Dedicated account manager",
-      "Full marketing strategy",
+    section: "Web Hosting",
+    plans: [
+      {
+        name: "Standard Hosting",
+        price: "$150/year",
+        features: [
+          "Shared Hosting Server",
+          "10 GB Storage",
+          "Free SSL Certificate",
+          "Weekly Backups",
+        ],
+      },
+      {
+        name: "Premium Hosting",
+        price: "$300/year",
+        features: [
+          "Dedicated High-Speed Server",
+          "50 GB Storage",
+          "Advanced Security",
+          "Daily Backups + Monitoring",
+        ],
+        featured: true,
+      },
     ],
-    featured: false,
+  },
+  {
+    section: "Website Maintenance",
+    plans: [
+      {
+        name: "Basic Maintenance",
+        price: "$49/mo",
+        features: ["Monthly Updates", "Basic Bug Fixes", "Email Support"],
+      },
+      {
+        name: "Premium Maintenance",
+        price: "$129/mo",
+        features: [
+          "Weekly Updates",
+          "Priority Bug Fixes",
+          "Performance Monitoring",
+          "24/7 Support",
+        ],
+        featured: true,
+      },
+    ],
+  },
+  {
+    section: "SEO Services",
+    plans: [
+      {
+        name: "SEO Starter",
+        price: "$199/mo",
+        features: [
+          "Keyword Optimization",
+          "Basic On-page SEO",
+          "Google Analytics Setup",
+        ],
+      },
+      {
+        name: "Advanced SEO",
+        price: "$399/mo",
+        features: [
+          "Full SEO Audit",
+          "Technical SEO Fixes",
+          "Backlink Strategy",
+          "Content Recommendations",
+        ],
+        featured: true,
+      },
+    ],
+  },
+  {
+    section: "Advertising Packages",
+    plans: [
+      {
+        name: "Starter Ads",
+        price: "$199/mo",
+        features: [
+          "3 Graphic Posts per Week",
+          "Social Media Strategy",
+          "Monthly Performance Report",
+        ],
+      },
+      {
+        name: "Pro Ads",
+        price: "$399/mo",
+        features: [
+          "5 Graphic Posts per Week",
+          "Ad Campaign Management",
+          "A/B Testing",
+          "Advanced Analytics",
+        ],
+        featured: true,
+      },
+    ],
+  },
+  {
+    section: "Branding Packages",
+    plans: [
+      {
+        name: "Basic Identity",
+        price: "$149 one-time",
+        features: [
+          "Business Card Design",
+          "Includes Company Name, Logo, Phone",
+          "Print-Ready Files",
+        ],
+      },
+      {
+        name: "Full Branding",
+        price: "$349 one-time",
+        features: [
+          "Custom Logo Design",
+          "Brand Color Palette",
+          "Typography Set",
+          "Business Card Design Included",
+        ],
+        featured: true,
+      },
+    ],
   },
 ];
 
@@ -80,77 +231,83 @@ export default function Pricing() {
         />
       </div>
 
-      {/* Pricing Plans */}
-      <section className="bg-gray-50 py-24 px-6">
-        <motion.div
-          className="max-w-3xl mx-auto text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-          }}
-          viewport={{ once: true }}
-        >
-          <h1 className="text-5xl font-extrabold text-gray-800">
-            Pricing Plans
-          </h1>
-          <p className="mt-4 text-gray-600 text-lg">
-            Flexible packages for startups, growing businesses, and enterprises.
-            No hidden fees. Cancel anytime.
-          </p>
-        </motion.div>
+      {/* Sections */}
+      {allPlans.map(({ section, plans }) => {
+        const id = section
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-        >
-          {plans.map((plan, idx) => (
+        return (
+          <section key={section} id={id} className="bg-gray-50 py-24 px-6">
             <motion.div
-              key={plan.name}
-              className={`relative bg-white rounded-3xl shadow-lg p-8 flex flex-col ${
-                plan.featured ? "border-4 border-blue-600" : ""
-              }`}
-              variants={cardVariants}
-              whileHover="hover"
+              className="max-w-3xl mx-auto text-center mb-16"
+              initial="hidden"
+              whileInView="visible"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+              }}
+              viewport={{ once: true }}
             >
-              {plan.featured && (
-                <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-bl-lg">
-                  Most Popular
-                </div>
-              )}
-
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                {plan.name}
-              </h2>
-              <p className="text-4xl font-bold text-blue-700 mb-6">
-                {plan.price}
-              </p>
-
-              <ul className="flex-1 space-y-3 text-gray-700 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start">
-                    <span className="text-green-500 mt-1 mr-2">✓</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <motion.div variants={buttonVariants} whileHover="hover">
-                <Link
-                  href="/contact"
-                  className="w-full block text-center bg-blue-700 text-white px-6 py-3 rounded-lg font-medium"
-                >
-                  Choose {plan.name}
-                </Link>
-              </motion.div>
+              <h2 className="text-4xl font-bold text-gray-800">{section}</h2>
             </motion.div>
-          ))}
-        </motion.div>
-      </section>
+
+            <motion.div
+              className={`grid gap-8 mx-auto justify-center ${
+                plans.length === 1
+                  ? "grid-cols-1"
+                  : plans.length === 2
+                  ? "grid-cols-1 md:grid-cols-2 max-w-4xl"
+                  : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl"
+              }`}
+              initial="hidden"
+              whileInView="visible"
+              variants={containerVariants}
+              viewport={{ once: true }}
+            >
+              {plans.map((plan) => (
+                <motion.div
+                  key={plan.name}
+                  className={`relative bg-white rounded-3xl shadow-lg p-8 flex flex-col ${
+                    plan.featured ? "border-4 border-blue-600" : ""
+                  }`}
+                  variants={cardVariants}
+                  whileHover="hover"
+                >
+                  {plan.featured && (
+                    <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-bl-lg">
+                      Most Popular
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                    {plan.name}
+                  </h3>
+                  <p className="text-3xl font-bold text-blue-700 mb-6">
+                    {plan.price}
+                  </p>
+                  <ul className="flex-1 space-y-3 text-gray-700 mb-8">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start">
+                        <span className="text-green-500 mt-1 mr-2">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <motion.div variants={buttonVariants} whileHover="hover">
+                    <Link
+                      href="/pricing"
+                      className="w-full block text-center bg-blue-700 text-white px-6 py-3 rounded-lg font-medium"
+                    >
+                      Choose {plan.name}
+                    </Link>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </section>
+        );
+      })}
     </>
   );
 }

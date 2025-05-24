@@ -29,6 +29,7 @@ import Consultation from "./Consultation";
 import drmicheladib from "../assets/drmicheladib.png";
 import realEstate from "../assets/real-estate.png";
 import shoper from "../assets/shoper.png";
+import ServiceOverview from "./sections/ServiceOverview";
 
 const MotionImage = motion(Image);
 
@@ -430,7 +431,11 @@ const HomePage: FC = () => {
         </Swiper>
         {/* <div className="my-pagination flex justify-center mt-10"></div> */}
       </motion.section>
+      {/* ////////////////// */}
 
+      <ServiceOverview />
+
+      {/* ////////////////// */}
       {/* How to Start */}
       <motion.section
         className="bg-gradient-to-r from-orange-400 to-yellow-300 py-20 px-6"
@@ -502,7 +507,7 @@ const HomePage: FC = () => {
             with remote devs as needed
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8  mx-16">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
