@@ -59,7 +59,7 @@ export default function Banner({
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {title}{" "}
             {highlightedWord && (
-              <span className="text-blue-400">{highlightedWord}</span>
+              <span className="text-primary">{highlightedWord}</span>
             )}
           </h1>
           <p className="text-lg text-gray-200 max-w-2xl mb-8">{description}</p>
@@ -73,7 +73,7 @@ export default function Banner({
           >
             <Link
               href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg shadow-lg transition"
+              className="inline-block bg-primary hover:bg-primary-100 text-white font-medium px-6 py-3 rounded-lg shadow-lg transition"
             >
               Let’s Talk Business
             </Link>

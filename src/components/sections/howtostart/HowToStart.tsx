@@ -1,11 +1,9 @@
 "use client";
 
 import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { Text } from "../../ui/Text";
 import { motion, Variants } from "framer-motion";
 
 import { FaRocket, FaCode, FaChartLine } from "react-icons/fa";
@@ -17,10 +15,10 @@ import {
   FaPalette,
 } from "react-icons/fa";
 
-import major from "../assets/major.png";
-import Banner from "@/components/Banner";
+import major from "../../../assets/major.png";
+import Banner from "@/components/ui/Banner";
 
-// Variants مشترك للكروت
+// Variants
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
@@ -35,12 +33,12 @@ const HowToStart: React.FC = () => {
     {
       icon: <FaRocket />,
       title: "01. Request a Consultation",
-      text: "Tell us about your idea or project. We’ll analyze your technical needs in detail.",
+      text: "Tell us about your idea or project. We'll analyze your technical needs in detail.",
     },
     {
       icon: <FaCode />,
       title: "02. Technical Interview",
-      text: "We’ll discuss your project in depth and suggest the best solutions (Next.js, Django, SEO, UX/UI, etc.).",
+      text: "We'll discuss your project in depth and suggest the best solutions (Next.js, Django, SEO, UX/UI, etc.).",
     },
     {
       icon: <FaChartLine />,
@@ -91,9 +89,9 @@ const HowToStart: React.FC = () => {
 
       {/* Steps */}
       <div className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+        <Text variant="h2" className="text-gray-800 mb-8">
           Steps to Get Started:
-        </h2>
+        </Text>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, idx) => (
             <motion.div
@@ -105,13 +103,15 @@ const HowToStart: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="bg-gray-50 p-6 rounded-lg shadow-md"
             >
-              <div className="flex justify-center mb-4 text-blue-500 text-4xl">
+              <div className="flex justify-center mb-4 text-primary text-4xl">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <Text variant="h3" className="text-gray-800 mb-2 font-semibold">
                 {step.title}
-              </h3>
-              <p className="text-gray-600">{step.text}</p>
+              </Text>
+              <Text variant="body" className="text-gray-600">
+                {step.text}
+              </Text>
             </motion.div>
           ))}
         </div>
@@ -119,9 +119,9 @@ const HowToStart: React.FC = () => {
 
       {/* Why Choose Us */}
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+        <Text variant="h2" className="text-gray-800 mb-8">
           Why Choose Us?
-        </h2>
+        </Text>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reasons.map((item, idx) => (
             <motion.div
@@ -133,13 +133,15 @@ const HowToStart: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="bg-gray-50 p-6 rounded-lg shadow-md"
             >
-              <div className="flex justify-center mb-4 text-blue-500 text-4xl">
+              <div className="flex justify-center mb-4 text-primary text-4xl">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <Text variant="h3" className="text-gray-800 mb-2 font-semibold">
                 {item.title}
-              </h3>
-              <p className="text-gray-600">{item.text}</p>
+              </Text>
+              <Text variant="body" className="text-gray-600">
+                {item.text}
+              </Text>
             </motion.div>
           ))}
         </div>

@@ -5,21 +5,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import { motion, Variants } from "framer-motion";
-
+import { Text } from "./ui/Text";
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-  FaDocker,
+  FaCode,
+  FaSearch,
+  FaMobile,
+  FaServer,
+  FaShieldAlt,
+  FaChartLine,
 } from "react-icons/fa";
-import { IoIosCode } from "react-icons/io";
-import { MdAndroid } from "react-icons/md";
-import { GiCpu } from "react-icons/gi";
-import { AiOutlineSecurityScan } from "react-icons/ai";
-import { SiPhp, SiWordpress, SiReact } from "react-icons/si";
+import { SiWebflow, SiWordpress, SiShopify } from "react-icons/si";
+import { MdSpeed, MdAnalytics } from "react-icons/md";
+import { BsGraphUp } from "react-icons/bs";
 
 interface StaffItem {
   icon: React.ReactNode;
@@ -28,49 +26,52 @@ interface StaffItem {
 
 const staffItems: StaffItem[] = [
   {
-    icon: <FaHtml5 className="w-8 h-8 text-black" />,
-    title: "Frontend Engineers",
+    icon: <FaCode className="w-8 h-8 text-primary" />,
+    title: "Custom Website Development",
   },
   {
-    icon: <FaReact className="w-8 h-8 text-black" />,
-    title: "Angular Developers",
+    icon: <SiWebflow className="w-8 h-8 text-primary" />,
+    title: "Webflow Development",
   },
   {
-    icon: <GiCpu className="w-8 h-8 text-black" />,
-    title: "AI and ML Engineers",
+    icon: <SiWordpress className="w-8 h-8 text-primary" />,
+    title: "WordPress Development",
   },
   {
-    icon: <FaDocker className="w-8 h-8 text-black" />,
-    title: "DevOps + DevSecOps Engineers",
+    icon: <SiShopify className="w-8 h-8 text-primary" />,
+    title: "E-commerce Solutions",
   },
   {
-    icon: <IoIosCode className="w-8 h-8 text-black" />,
-    title: "Project Managers",
+    icon: <FaMobile className="w-8 h-8 text-primary" />,
+    title: "Mobile-First Design",
   },
   {
-    icon: <SiPhp className="w-8 h-8 text-black" />,
-    title: "Solution Architects",
+    icon: <FaSearch className="w-8 h-8 text-primary" />,
+    title: "SEO Optimization",
   },
   {
-    icon: <MdAndroid className="w-8 h-8 text-black" />,
-    title: "iOS and Android Developers",
+    icon: <MdSpeed className="w-8 h-8 text-primary" />,
+    title: "Performance Optimization",
   },
   {
-    icon: <SiReact className="w-8 h-8 text-black" />,
-    title: "Fullstack Engineers",
-  },
-  { icon: <SiPhp className="w-8 h-8 text-black" />, title: "PHP Developers" },
-  {
-    icon: <AiOutlineSecurityScan className="w-8 h-8 text-black" />,
-    title: "QA Engineers",
+    icon: <FaServer className="w-8 h-8 text-primary" />,
+    title: "Web Hosting",
   },
   {
-    icon: <SiWordpress className="w-8 h-8 text-black" />,
-    title: "WordPress CMS Developers",
+    icon: <FaShieldAlt className="w-8 h-8 text-primary" />,
+    title: "Security Implementation",
   },
   {
-    icon: <FaNodeJs className="w-8 h-8 text-black" />,
-    title: "Tech Leads / Team Leads",
+    icon: <MdAnalytics className="w-8 h-8 text-primary" />,
+    title: "Analytics Integration",
+  },
+  {
+    icon: <BsGraphUp className="w-8 h-8 text-primary" />,
+    title: "Conversion Optimization",
+  },
+  {
+    icon: <FaChartLine className="w-8 h-8 text-primary" />,
+    title: "Digital Marketing",
   },
 ];
 
@@ -112,12 +113,15 @@ const SpecializedStaffSection: FC = () => {
   const mobileChunks = chunkArray(staffItems, 2);
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <p className="text-blue-900 font-semibold mb-2">Specialized Staff</p>
-        <h2 className="text-3xl font-bold text-blue-900">
-          Specialized Staff We Provide
-        </h2>
+    <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <Text variant="h2" className="text-gray-900 font-bold">
+          Comprehensive Web Solutions
+        </Text>
+        <Text variant="body" className="text-gray-600 mt-4">
+          From custom development to SEO optimization, we provide end-to-end web
+          solutions to help your business grow online.
+        </Text>
       </div>
 
       {isDesktop ? (
@@ -130,10 +134,14 @@ const SpecializedStaffSection: FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              className="flex items-center bg-white p-4 rounded-xl shadow-md border-l-8 border-yellow-300 hover:scale-105 transition-transform"
+              className="flex items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100"
             >
-              <div className="p-3 rounded-lg mr-4">{item.icon}</div>
-              <h3 className="font-semibold text-blue-900">{item.title}</h3>
+              <div className="p-3 rounded-xl bg-indigo-50 mr-4">
+                {item.icon}
+              </div>
+              <Text variant="body" className="font-semibold text-gray-900">
+                {item.title}
+              </Text>
             </motion.div>
           ))}
         </div>
@@ -143,19 +151,23 @@ const SpecializedStaffSection: FC = () => {
             modules={[Pagination, Autoplay]}
             slidesPerView={1}
             slidesPerGroup={1}
-            spaceBetween={20}
-            loop
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
-            pagination={{
-              el: ".my-pagination",
-              clickable: true,
-              // bulletClass: "swiper-pagination-bullet mx-3",
-              // bulletActiveClass: "swiper-pagination-bullet-active",
+            spaceBetween={16}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
+            pagination={{
+              el: ".swiper-pagination",
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            className="pb-20"
           >
             {mobileChunks.map((group, grpIdx) => (
               <SwiperSlide key={grpIdx}>
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-4 px-2 mb-8">
                   {group.map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -164,19 +176,24 @@ const SpecializedStaffSection: FC = () => {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.3 }}
-                      className="flex items-center bg-white p-4 rounded-xl shadow-md border-l-8 border-yellow-300"
+                      className="flex items-center bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-100"
                     >
-                      <div className="p-3 rounded-lg mr-4">{item.icon}</div>
-                      <h3 className="font-semibold text-blue-900">
+                      <div className="p-2 sm:p-3 rounded-xl bg-indigo-50 mr-3 sm:mr-4">
+                        {item.icon}
+                      </div>
+                      <Text
+                        variant="body"
+                        className="font-semibold text-gray-900 text-sm sm:text-base"
+                      >
                         {item.title}
-                      </h3>
+                      </Text>
                     </motion.div>
                   ))}
                 </div>
               </SwiperSlide>
             ))}
+            <div className="swiper-pagination !bottom-0 mt-8" />
           </Swiper>
-          {/* <div className="my-pagination flex justify-center mt-10"></div> */}
         </div>
       )}
     </section>

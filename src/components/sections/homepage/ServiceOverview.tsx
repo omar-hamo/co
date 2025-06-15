@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Text } from "../../ui/Text";
 import {
   FaGlobe,
   FaServer,
@@ -13,40 +14,40 @@ import {
 const services = [
   {
     title: "Website Plans",
-    icon: <FaGlobe size={32} className="text-blue-600" />,
+    icon: <FaGlobe size={32} className="text-primary" />,
     description:
       "Affordable and scalable website plans for startups and enterprises.",
     href: "/pricing#web-site-plans",
   },
   {
     title: "Web Hosting",
-    icon: <FaServer size={32} className="text-blue-600" />,
+    icon: <FaServer size={32} className="text-primary" />,
     description:
       "Reliable and secure hosting solutions tailored to your business.",
     href: "/pricing#web-hosting",
   },
   {
     title: "Website Maintenance",
-    icon: <FaCogs size={32} className="text-blue-600" />,
+    icon: <FaCogs size={32} className="text-primary" />,
     description:
       "Keep your website up-to-date and running smoothly with our plans.",
     href: "/pricing#website-maintenance",
   },
   {
     title: "SEO Services",
-    icon: <FaSearch size={32} className="text-blue-600" />,
+    icon: <FaSearch size={32} className="text-primary" />,
     description: "Boost your visibility on search engines and drive traffic.",
     href: "/pricing#seo-services",
   },
   {
     title: "Advertising Packages",
-    icon: <FaBullhorn size={32} className="text-blue-600" />,
+    icon: <FaBullhorn size={32} className="text-primary" />,
     description: "Expand your reach with professionally designed ad campaigns.",
     href: "/pricing#advertising-packages",
   },
   {
     title: "Branding Packages",
-    icon: <FaPalette size={32} className="text-blue-600" />,
+    icon: <FaPalette size={32} className="text-primary" />,
     description: "Give your brand a unique identity with logo and card design.",
     href: "/pricing#branding-packages",
   },
@@ -62,17 +63,17 @@ export default function ServiceOverview() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-5xl font-bold text-gray-800 mb-4">
+        <Text variant="h1" className="text-gray-800 mb-4">
           Our Core Services
-        </h2>
-        <p className="text-gray-600 text-lg">
+        </Text>
+        <Text variant="body" className="text-gray-600">
           Explore our six main service categories designed to grow your digital
           presence.
-        </p>
+        </Text>
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  mx-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto"
         initial="hidden"
         whileInView="visible"
         transition={{ staggerChildren: 0.2 }}
@@ -89,16 +90,18 @@ export default function ServiceOverview() {
           >
             <div className="flex items-center mb-4">
               {service.icon}
-              <h3 className="text-xl font-semibold text-gray-800 ml-3">
+              <Text variant="h3" className="text-gray-800 ml-3 font-semibold">
                 {service.title}
-              </h3>
+              </Text>
             </div>
-            <p className="text-gray-600 mb-4">{service.description}</p>
+            <Text variant="body" className="text-gray-600 mb-4">
+              {service.description}
+            </Text>
             <Link
               href={service.href}
-              className="text-blue-700 font-medium hover:underline"
+              className="text-primary font-medium hover:underline"
             >
-              Learn More →
+              <Text variant="body">Learn More →</Text>
             </Link>
           </motion.div>
         ))}

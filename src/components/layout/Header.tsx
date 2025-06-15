@@ -21,17 +21,17 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="w-full px-6 py-4 bg-white shadow-sm relative z-50">
-      <div className="mx-20 flex items-center justify-between">
+    <header className="w-full xl:px-6 md:py-2 bg-[#f0f0f0] shadow-sm relative z-50">
+      <div className="xl:mx-20 mx-5 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="Company Logo" width={60} height={60} />
-          <div className="text-orange-600 font-bold leading-5">ARO-TECH</div>
+          <div className="text-primary font-bold leading-5">ARO-TECH</div>
         </Link>
 
         {/* زر الهامبرغر للموبايل */}
         <button
-          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -48,10 +48,8 @@ const Header: React.FC = () => {
             <Link
               key={href}
               href={href}
-              className={`hover:text-orange-500 transition ${
-                path === href
-                  ? "text-orange-500 font-semibold"
-                  : "text-blue-950"
+              className={`hover:text-primary transition ${
+                path === href ? "text-primary font-bold" : "text-blue-950"
               }`}
             >
               {label}

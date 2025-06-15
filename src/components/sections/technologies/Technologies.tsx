@@ -2,8 +2,10 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import Banner from "../Banner";
-import major from "../../assets/major.png";
+import Banner from "../../ui/Banner";
+import { Text } from "../../ui/Text";
+import major from "../../../assets/major.png";
+import Head from "next/head";
 
 const techDescriptions: Record<string, string> = {
   "Next.js":
@@ -94,51 +96,73 @@ const categories = [
 
 export default function TechnologiesSection() {
   return (
-    <section className="bg-white overflow-hidden">
-      <Banner
-        title="Technologies We Use"
-        description="Robust, scalable toolkit for cutting-edge digital solutions."
-        backgroundImage={major}
-        bottomTitle="Ready to Innovate?"
-        bottomText="Contact us and let’s build your next project."
-      />
+    <>
+      <Head>
+        <title>Web Development Technologies | Aro Tech Vision</title>
+        <meta
+          name="description"
+          content="Explore our technology stack including Next.js, React, Django, and more. We build modern, scalable web applications."
+        />
+        <meta
+          name="keywords"
+          content="web development, Next.js, React, Django, WordPress, databases, cloud computing"
+        />
+      </Head>
 
-      <div className="max-w-7xl mx-auto py-20 px-4">
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {categories.map((cat, idx) => (
-            <motion.div
-              key={cat.title}
-              custom={idx}
-              variants={fadeIn}
-              className="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2"
-            >
-              <h4 className="text-2xl font-bold text-indigo-600 mb-4">
-                {cat.title}
-              </h4>
-              <ul className="space-y-2">
-                {cat.items.map((tech) => (
-                  <li
-                    key={tech}
-                    className="relative group p-2 rounded-md hover:bg-indigo-50 cursor-pointer"
-                  >
-                    <span className="font-medium text-gray-800">{tech}</span>
-                    {techDescriptions[tech] && (
-                      <div className="absolute left-0 top-full mt-2 w-64 p-3 bg-white border border-gray-200 rounded-lg shadow-lg text-sm text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                        {techDescriptions[tech]}
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+      <section className="bg-white overflow-hidden">
+        <Banner
+          title="Technologies We "
+          highlightedWord="Use"
+          description="Robust, scalable toolkit for cutting-edge digital solutions."
+          backgroundImage={major}
+          bottomTitle="Ready to Innovate?"
+          bottomText="Contact us and let's build your next project."
+        />
+
+        <div className="max-w-7xl mx-auto py-20 px-4">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {categories.map((cat, idx) => (
+              <motion.div
+                key={cat.title}
+                custom={idx}
+                variants={fadeIn}
+                className="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2"
+              >
+                <Text variant="h2" className="text-primary mb-4 font-bold">
+                  {cat.title}
+                </Text>
+                <ul className="space-y-2">
+                  {cat.items.map((tech) => (
+                    <li
+                      key={tech}
+                      className="relative group p-2 rounded-md hover:bg-indigo-50 cursor-pointer"
+                    >
+                      <Text
+                        variant="body"
+                        className="font-medium text-gray-800"
+                      >
+                        {tech}
+                      </Text>
+                      {techDescriptions[tech] && (
+                        <div className="absolute left-0 top-full mt-2 w-64 p-3 bg-white border border-gray-200 rounded-lg shadow-lg text-sm text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                          <Text variant="body" className="text-sm">
+                            {techDescriptions[tech]}
+                          </Text>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }

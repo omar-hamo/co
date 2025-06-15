@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-white pt-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t bg-white ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-start py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
           <h2 className="text-xl font-bold text-gray-800 mb-4">DevAgency</h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4 md:w-full w-72 mx-auto">
             We build modern websites and scalable web apps to grow your
             business.
           </p>
@@ -147,7 +147,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t mt-8 py-4 text-center text-gray-500 text-sm">
+      <div className="border-t py-4 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} DevAgency. All rights reserved. |{" "}
         <Link
           href="/privacy"

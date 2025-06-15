@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-primary: #f0e500;
+  --color-primary-100: #ffad00;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
