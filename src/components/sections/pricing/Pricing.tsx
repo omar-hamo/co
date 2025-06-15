@@ -3,12 +3,11 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Banner from "../../ui/Banner";
 import { Text } from "../../ui/Text";
 import major from "../../../assets/major.png";
-import { API_ENDPOINTS } from "@/config/api";
+// import { API_ENDPOINTS } from "@/config/api";
 import { CardSkeleton } from "@/components/ui/Skeleton";
 
 // Types
@@ -134,8 +133,11 @@ export default function Pricing() {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        console.log("Fetching from:", API_ENDPOINTS.PRICING.ALL);
-        const response = await axios.get(API_ENDPOINTS.PRICING.ALL);
+        // console.log("Fetching from:", API_ENDPOINTS.PRICING.ALL);
+        // const response = await axios.get(API_ENDPOINTS.PRICING.ALL);
+        const response = await axios.get(
+          "http://aro-tech-vision.nl/api/pricing/all"
+        );
         if (response?.data) {
           setPackages(response.data);
         } else {
