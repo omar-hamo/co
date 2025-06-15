@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.BASE_URL || "http://aro-tech-vision.nl";
+// const API_BASE_URL = process.env.BASE_URL || "http://aro-tech-vision.nl";
+const API_BASE_URL = "http://aro-tech-vision.nl";
 
 export const API_ENDPOINTS = {
   PRICING: {
